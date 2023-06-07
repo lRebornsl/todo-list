@@ -1,3 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+$lightGray: #f6f6f6;
+$white: #fff;
+
+/* Global */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: red;
+  background-color: $lightGray;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+li {
+  list-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+hr {
+  background-color: $lightGray;
+}
+
+/* Utility */
+
+.container {
+  max-width: 144rem;
+  width: 60%;
+  margin: 5rem auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Main */
+.main-cont {
+  background-color: $white;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.main__title {
+  padding: 1rem;
+}
+
+.form__cont {
+  padding: 1rem;
+  width: 100%;
+}
+
+.add__text {
+  font-size: 1.5rem;
+  font-style: italic;
+  border: none;
+  width: 90%;
+  outline: none;
+}
+
+.add__submit {
+  background: url(./assets/enter_icon.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  border: none;
+  font-size: 1.5rem;
+  width: 5%;
+}
+
+.add__submit:hover {
+  cursor: pointer;
+}
+
+.main__item {
+  padding: 1rem;
+}
+
+.main__clear {
+  text-align: center;
+}
+
+.main__btn {
+  padding: 1rem 0;
+  background-color: $lightGray;
+}
+
+.main__btn button {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.main__btn:hover button {
+  color: black;
+  text-decoration: underline;
 }

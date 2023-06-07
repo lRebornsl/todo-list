@@ -9,7 +9,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
-    clean: true
+    clean: true,
+    assetModuleFilename: '[name][ext]'
   },
   devServer: {
     static: {
@@ -26,6 +27,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       }
     ]
   },
@@ -33,7 +38,7 @@ module.exports = {
       new HtmlWebpackPlugin({
         title: 'To-Do List',
         filename: 'index.html',
-        template: 'public/template.html'
+        template: 'src/template.html'
       })
   ]
 }
