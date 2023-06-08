@@ -87,8 +87,6 @@ Example commands:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **lRebornsl**
 
 - GitHub: [@lRebornsl](https://github.com/lRebornsl)
