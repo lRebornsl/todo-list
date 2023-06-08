@@ -2,6 +2,8 @@
 
 $lightGray: #f6f6f6;
 $white: #fff;
+$textGray: #ccc;
+$lightYellow: #fffeca;
 
 /* Global */
 
@@ -51,8 +53,21 @@ hr {
   margin: 5rem auto;
 }
 
+.flex {
+  display: flex;
+}
+
 .hidden {
   display: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: $textGray;
+}
+
+.bg-yellow {
+  background-color: $lightYellow;
 }
 
 /* Main */
@@ -68,6 +83,10 @@ hr {
 .form__cont {
   padding: 1rem;
   width: 100%;
+}
+
+.add__form {
+  justify-content: space-between;
 }
 
 .add__text {
@@ -92,7 +111,31 @@ hr {
 }
 
 .main__item {
-  padding: 1rem;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.checkLi {
+  padding: 1rem 0;
+}
+
+.checkLi button {
+  margin-right: 1rem;
+  background: none;
+  border: none;
+}
+
+.editInput {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.svg {
+  padding: 0.7rem 0;
+  cursor: pointer;
 }
 
 .main__clear {
