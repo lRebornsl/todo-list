@@ -14,7 +14,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -53,14 +52,6 @@
 - **JavaScript Classes and Methods Used**
 - **Data Stored in Local Storage**
 - **Dynamic Content Display**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Coming Soon]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
