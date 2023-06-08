@@ -14,10 +14,11 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
   - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -56,14 +57,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Coming Soon]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -87,13 +80,32 @@ Example commands:
   git clone git@github.com:lRebornsl/todo-list.git
 ```
 
+### Install
+
+Install this project with:
+
+Example command:
+
+```sh
+  npm install
+```
+
+### Usage
+
+To run the project, execute the following command:
+
+Example command:
+
+```sh
+  npm run build
+  npm start
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
 
 👤 **lRebornsl**
 
@@ -107,7 +119,7 @@ Example commands:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Create a better Web design**
+- [ ] **Add more validations**
 - [ ] **Improve UI**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
