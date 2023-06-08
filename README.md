@@ -76,6 +76,9 @@ Example commands:
 ```sh
   cd todo-list
   git clone git@github.com:lRebornsl/todo-list.git
+  npm install
+  npm run build
+  npm start
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
