@@ -15,8 +15,9 @@
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
   - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
   - [Usage](#usage)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -79,6 +80,16 @@ Example commands:
   git clone git@github.com:lRebornsl/todo-list.git
 ```
 
+### Install
+
+Install this project with:
+
+Example command:
+
+```sh
+  npm install
+```
+
 ### Usage
 
 To run the project, execute the following command:
@@ -86,7 +97,6 @@ To run the project, execute the following command:
 Example command:
 
 ```sh
-  npm install
   npm run build
   npm start
 ```
