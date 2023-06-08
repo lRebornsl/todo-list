@@ -107,7 +107,7 @@ Example commands:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Create a better Web design**
+- [ ] **Add more validations**
 - [ ] **Improve UI**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
