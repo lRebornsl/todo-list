@@ -76,7 +76,6 @@ Example commands:
 ```sh
   cd todo-list
   git clone git@github.com:lRebornsl/todo-list.git
-  npm install
 ```
 
 ### Usage
@@ -86,6 +85,7 @@ To run the project, execute the following command:
 Example command:
 
 ```sh
+  npm install
   npm run build
   npm start
 ```
