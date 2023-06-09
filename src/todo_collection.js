@@ -22,11 +22,7 @@ class ToDoCollection {
     addEnter.addEventListener('submit', addFunction);
     addBtn.addEventListener('click', addFunction);
     delBtn.addEventListener('click', () => {
-      for (let i = this.todoData.length - 1; i >= 0; i -= 1) {
-        if (this.todoData[i].completed === true) {
-          this.delTask(i);
-        }
-      }
+      this.delTask();
     });
   }
 
@@ -78,6 +74,8 @@ class ToDoCollection {
           task.appendChild(svg);
           this.todoList.appendChild(line);
           this.todoList.appendChild(task);
+          
+          /* Add event listener to the checkbox */
 
           checkBtn.addEventListener('click', () => {
             if (this.todoData[i].completed === false) {
@@ -125,7 +123,7 @@ class ToDoCollection {
               itemText.classList.add('hidden');
               task.classList.add('bg-yellow');
               svg.classList.add('trash');
-
+              
               svgList.forEach((item) => {
                 if (item.classList.contains('trash')) {
                   item.innerHTML = `
@@ -172,12 +170,11 @@ class ToDoCollection {
     this.render();
   }
 
-  delTask(index) {
-    this.todoData.splice(index, 1);
-    for (let i = index; i < this.todoData.length; i += 1) {
-      this.todoData[i].index -= 1;
-    }
-    localStorage.setItem('todoData', JSON.stringify(this.todoData));
+  delTask() {
+    const falseTask = this.todoData.filter(item => item.completed === false);
+    for(let i = 0; i < falseTask.length; i += 1) falseTask[i].index = i;
+    localStorage.setItem('todoData', JSON.stringify(falseTask));
+    this.todoData = falseTask;
     this.render();
   }
 
