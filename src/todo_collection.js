@@ -22,11 +22,7 @@ class ToDoCollection {
     addEnter.addEventListener('submit', addFunction);
     addBtn.addEventListener('click', addFunction);
     delBtn.addEventListener('click', () => {
-      for (let i = this.todoData.length - 1; i >= 0; i -= 1) {
-        if (this.todoData[i].completed === true) {
-          this.delTask(i);
-        }
-      }
+      this.delTask();
     });
   }
 
@@ -35,11 +31,15 @@ class ToDoCollection {
 
     for (let i = 0; i < this.todoData.length; i += 1) {
       this.todoData.forEach((data) => {
+        if (data.completed === true) {
+          data.completed = false;
+          localStorage.setItem('todoData', JSON.stringify(this.todoData));
+        }
         if (data.index === i) {
           const task = document.createElement('div');
           const line = document.createElement('hr');
           const checkLi = document.createElement('div');
-          const checkBtn = document.createElement('button');
+          const checkInput = document.createElement('input');
           const item = document.createElement('li');
           const itemText = document.createElement('p');
           const svg = document.createElement('div');
@@ -47,14 +47,8 @@ class ToDoCollection {
           const editInput = document.createElement('input');
           task.classList.add('main__item', 'flex');
           checkLi.classList.add('checkLi', 'flex');
-          task.innerHTML = '';
-          checkBtn.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cccccc" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-            </svg>
-          `;
-          checkLi.appendChild(checkBtn);
+          checkInput.setAttribute('type', 'checkbox');
+          checkLi.appendChild(checkInput);
           itemText.classList.add('editText');
           itemText.innerHTML = `${data.description}`;
           item.appendChild(itemText);
@@ -68,36 +62,28 @@ class ToDoCollection {
           task.appendChild(checkLi);
           svg.classList.add('svg');
           svg.innerHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cccccc" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-            <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-            <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cccccc" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+              <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+              <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            </svg>
           `;
           task.appendChild(svg);
           this.todoList.appendChild(line);
           this.todoList.appendChild(task);
 
-          checkBtn.addEventListener('click', () => {
+          /* Add event listener to the checkbox */
+
+          checkInput.addEventListener('change', () => {
             if (this.todoData[i].completed === false) {
               this.todoData[i].completed = true;
+              localStorage.setItem('todoData', JSON.stringify(this.todoData));
               item.classList.add('completed');
-              checkBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#4899e9" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M5 12l5 5l10 -10" />
-                </svg>
-              `;
             } else {
               this.todoData[i].completed = false;
+              localStorage.setItem('todoData', JSON.stringify(this.todoData));
               item.classList.remove('completed');
-              checkBtn.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-square" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="#cccccc" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-                </svg>
-              `;
             }
           });
 
@@ -125,6 +111,17 @@ class ToDoCollection {
               itemText.classList.add('hidden');
               task.classList.add('bg-yellow');
               svg.classList.add('trash');
+
+              const svgTrash = document.querySelector('.trash');
+
+              svgTrash.addEventListener('click', () => {
+                this.todoData.splice(i, 1);
+                for (let j = i; j < this.todoData.length; j += 1) {
+                  this.todoData[j].index = j;
+                }
+                localStorage.setItem('todoData', JSON.stringify(this.todoData));
+                this.render();
+              });
 
               svgList.forEach((item) => {
                 if (item.classList.contains('trash')) {
@@ -172,12 +169,11 @@ class ToDoCollection {
     this.render();
   }
 
-  delTask(index) {
-    this.todoData.splice(index, 1);
-    for (let i = index; i < this.todoData.length; i += 1) {
-      this.todoData[i].index -= 1;
-    }
-    localStorage.setItem('todoData', JSON.stringify(this.todoData));
+  delTask() {
+    const falseTask = this.todoData.filter((item) => item.completed === false);
+    for (let i = 0; i < falseTask.length; i += 1) falseTask[i].index = i;
+    localStorage.setItem('todoData', JSON.stringify(falseTask));
+    this.todoData = falseTask;
     this.render();
   }
 
