@@ -74,7 +74,7 @@ class ToDoCollection {
           task.appendChild(svg);
           this.todoList.appendChild(line);
           this.todoList.appendChild(task);
-          
+
           /* Add event listener to the checkbox */
 
           checkBtn.addEventListener('click', () => {
@@ -123,7 +123,7 @@ class ToDoCollection {
               itemText.classList.add('hidden');
               task.classList.add('bg-yellow');
               svg.classList.add('trash');
-              
+
               svgList.forEach((item) => {
                 if (item.classList.contains('trash')) {
                   item.innerHTML = `
@@ -171,8 +171,8 @@ class ToDoCollection {
   }
 
   delTask() {
-    const falseTask = this.todoData.filter(item => item.completed === false);
-    for(let i = 0; i < falseTask.length; i += 1) falseTask[i].index = i;
+    const falseTask = this.todoData.filter((item) => item.completed === false);
+    for (let i = 0; i < falseTask.length; i += 1) falseTask[i].index = i;
     localStorage.setItem('todoData', JSON.stringify(falseTask));
     this.todoData = falseTask;
     this.render();
