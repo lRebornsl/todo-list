@@ -31,7 +31,7 @@ class ToDoCollection {
 
     for (let i = 0; i < this.todoData.length; i += 1) {
       this.todoData.forEach((data) => {
-        if(data.completed === true) {
+        if (data.completed === true) {
           data.completed = false;
           localStorage.setItem('todoData', JSON.stringify(this.todoData));
         }
