@@ -116,9 +116,7 @@ class ToDoCollection {
 
               svgTrash.addEventListener('click', () => {
                 this.todoData.splice(i, 1);
-                for (let j = i; j < this.todoData.length; j += 1) {
-                  this.todoData[j].index = j;
-                }
+                for (let j = i; j < this.todoData.length; j += 1) this.todoData[j].index = j;
                 localStorage.setItem('todoData', JSON.stringify(this.todoData));
                 this.render();
               });
@@ -170,7 +168,7 @@ class ToDoCollection {
   }
 
   delTask() {
-    const falseTask = this.todoData.filter((item) => item.completed === false);
+    const falseTask = this.todoData.filter(item => item.completed === false);
     for (let i = 0; i < falseTask.length; i += 1) falseTask[i].index = i;
     localStorage.setItem('todoData', JSON.stringify(falseTask));
     this.todoData = falseTask;
